@@ -1,6 +1,10 @@
-﻿namespace RPG.Characters
+using System;
+using Interfaces;
+using RPG.Interfaces;
+
+namespace RPG.Characters
 {
-    public abstract class Character : GameObject
+    public abstract class Character : GameObject, ICharacter
     {
         private string name;
         private int health;
@@ -18,18 +22,24 @@
 
         public string Name
         {
-            get
-            {
-                return this.name;
-            }
+            get { return this.name; }
             set
             {
                 if (string.IsNullOrWhiteSpace(value))
                 {
-                    throw ArgumentNullException("name", "Name cannot be empty or null");
+                    throw new ArgumentNullException("name", "Name cannot be empty or null");
                 }
                 this.name = value;
             }
         }
+
+        void Attack(ICharacter enemy)
+        {
+            enemy.Health -= this.Damage;
+        }
+     
     }
+    
 }
+
+
