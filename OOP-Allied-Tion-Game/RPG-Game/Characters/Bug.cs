@@ -2,7 +2,7 @@ namespace RPG.Characters
 {
     public class Bug : Character
     {
-        private const int BugFocus = 30;
+        internal const int BugFocus = 30;
         private const int BugEnergy = 30;
         private const char BugSym = 'B';
 

@@ -25,7 +25,7 @@
             {
                 if (value.X < 0 || value.Y < 0)
                 {
-                    throw new ObjectOutOfMapException("Specified object position is outside the map.")
+                    throw new ObjectOutOfMapException("Specified object position is outside the map.");
                 }
                 this.position = value;
             }
@@ -45,6 +45,11 @@
                 }
                 this.objectSymbol = value;
             }
+        }
+
+        public void Move()
+        {
+            throw new NotImplementedException();
         }
     }
 }

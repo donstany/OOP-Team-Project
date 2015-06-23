@@ -8,9 +8,11 @@
 
     public class MainClass
     {
+        private const string mapPath = "../../Maps/01.txt";
+
         public static void Main()
         {
-            MapLoader.LoadMap("../Maps/01.txt");
+            MapLoader.LoadMap(mapPath);
             List<Item> allItems = MapLoader.ItemsOnMap.ToList();
             List<Character> allCharacters = MapLoader.CharactersOnMap.ToList();
         }

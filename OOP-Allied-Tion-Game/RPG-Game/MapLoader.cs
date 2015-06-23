@@ -38,9 +38,9 @@
                                 case 'P': ItemsOnMap.Add(new ProcessorUpgrade(new Position(row, col))); break;
                                 case 'R': ItemsOnMap.Add(new Resharper(new Position(row, col))); break;
                                 case 'U': ItemsOnMap.Add(new RedBull(new Position(row, col))); break;
-                                case 'E': CharactersOnMap.Add(new ExamBoss(new Position(row, col))); break;
-                                case 'G': CharactersOnMap.Add(new Bug(new Position(row, col))); break;
-                                case 'X': CharactersOnMap.Add(new RPG.Characters.Exception(new Position(row, col))); break;
+                                case 'E': CharactersOnMap.Add(new ExamBoss(new Position(row, col),"Exam Boss")); break;
+                                case 'G': CharactersOnMap.Add(new Bug(new Position(row, col),"Bug")); break;
+                                case 'X': CharactersOnMap.Add(new RPG.Characters.Exception(new Position(row, col),"Exception")); break;
                                 case 'Y': // add player depending on hero choise, require only 1 hero
 
                                 default: break;

@@ -2,7 +2,7 @@ namespace RPG.Characters
 {
     public class Exception : Character
     {
-            public const int ExcFocus = 30;
+            internal const int ExcFocus = 30;
             private const int ExcEnergy = 30;
             private const char ExcSym = 'E';
 
