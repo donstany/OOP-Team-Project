@@ -37,5 +37,15 @@ namespace RPG.Characters
         {
             enemy.Focus -= this.Energy;
         }
+
+        public int Damage
+        {
+            get { throw new NotImplementedException(); }
+        }
+
+        public int Health
+        {
+            get { throw new NotImplementedException(); }
+        }
     }
 }
