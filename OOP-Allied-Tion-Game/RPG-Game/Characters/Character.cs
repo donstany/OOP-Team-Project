@@ -32,13 +32,9 @@ namespace RPG.Characters
             }
         }
 
-        void Attack(ICharacter enemy)
+        void IAttack.Attack(Enemy enemy)
         {
             enemy.Focus -= this.Energy;
         }
-     
     }
-    
 }
-
-
