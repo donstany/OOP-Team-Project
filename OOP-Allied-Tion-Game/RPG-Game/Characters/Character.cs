@@ -1,5 +1,4 @@
 using System;
-using Interfaces;
 using RPG.Interfaces;
 
 namespace RPG.Characters
@@ -7,18 +6,18 @@ namespace RPG.Characters
     public abstract class Character : GameObject, ICharacter
     {
         private string name;
-        private int health;
-        private int damage;
+        private int focus;
+        private int energy;
 
-        public Character(string name, int health, int damage) : base(TODO)
+        public Character(string name, int focus, int energy) : base()
         {
             this.Name = name;
-            this.Health = health;
-            this.Damage = damage;
+            this.Focus = focus;
+            this.Energy = energy;
         }
 
-        public int Health { get; set; }
-        public int Damage { get; set; }
+        public int Focus { get; set; }
+        public int Energy { get; set; }
 
         public string Name
         {
@@ -35,7 +34,7 @@ namespace RPG.Characters
 
         void Attack(ICharacter enemy)
         {
-            enemy.Health -= this.Damage;
+            enemy.Focus -= this.Energy;
         }
      
     }
