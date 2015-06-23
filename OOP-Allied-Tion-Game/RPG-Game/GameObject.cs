@@ -15,7 +15,7 @@
             this.ObjectSymbol = objectSymbol;
         }
 
-        public Position Position 
+        public Position Position
         {
             get
             {
@@ -31,7 +31,7 @@
             }
         }
 
-        public char ObjectSymbol 
+        public char ObjectSymbol
         {
             get
             {

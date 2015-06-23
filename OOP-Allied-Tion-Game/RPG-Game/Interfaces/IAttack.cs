@@ -3,7 +3,7 @@ namespace RPG.Interfaces
 {
     public interface IAttack
     {
-        void Attack(Enemy enemy);
+        void Attack(Character enemy);
         
         int Damage { get; }
     }

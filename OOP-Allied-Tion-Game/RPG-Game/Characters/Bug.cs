@@ -1,6 +1,6 @@
 ﻿namespace RPG.Characters
 {
-    public class Bug : Enemy
+    public class Bug : Character
     {
 
     }

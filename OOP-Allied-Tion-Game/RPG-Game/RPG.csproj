@@ -43,13 +43,11 @@
   <ItemGroup>
     <Compile Include="Characters\Bug.cs" />
     <Compile Include="Characters\Character.cs" />
-    <Compile Include="Characters\Enemy.cs" />
     <Compile Include="Characters\ExamBoss.cs" />
     <Compile Include="Characters\Exception.cs" />
     <Compile Include="Characters\Nerd.cs" />
     <Compile Include="Characters\NormalStudent.cs" />
     <Compile Include="Characters\PartyAnimal.cs" />
-    <Compile Include="Characters\Student.cs" />
     <Compile Include="Engine\Engine.cs" />
     <Compile Include="Exceptions\ObjectOutOfMapException.cs" />
     <Compile Include="GameObject.cs" />
@@ -72,8 +70,9 @@
     <Compile Include="Items\ProcessorUpgrade.cs" />
     <Compile Include="Items\RedBull.cs" />
     <Compile Include="Items\Resharper.cs" />
-    <Compile Include="Items\StackOverflowHelp.cs" />
     <Compile Include="MainClass.cs" />
+    <Compile Include="MapLoader.cs" />
+    <Compile Include="ObjectsLetters.cs" />
     <Compile Include="Position.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UI\ConsoleInputReader.cs" />

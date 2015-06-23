@@ -1,6 +1,6 @@
 ﻿namespace RPG.Characters
 {
-    public class Exception : Enemy
+    public class Exception : Character
     {
 
     }

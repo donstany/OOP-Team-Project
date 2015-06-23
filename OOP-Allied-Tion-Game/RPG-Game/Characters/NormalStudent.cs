@@ -1,6 +1,6 @@
 ﻿namespace RPG.Characters
 {
-    public class NormalStudent : Student
+    public class NormalStudent : Character
     {
 
     }

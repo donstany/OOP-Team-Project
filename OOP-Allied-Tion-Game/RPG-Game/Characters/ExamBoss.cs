@@ -1,6 +1,6 @@
 ﻿namespace RPG.Characters
 {
-    public class ExamBoss : Enemy
+    public class ExamBoss : Character
     {
 
     }

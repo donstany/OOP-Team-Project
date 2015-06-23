@@ -9,7 +9,8 @@ namespace RPG.Characters
         private int focus;
         private int energy;
 
-        public Character(string name, int focus, int energy) : base()
+        public Character(Position position, char symbol, string name, int focus, int energy)
+            : base(position, symbol)
         {
             this.Name = name;
             this.Focus = focus;
@@ -32,7 +33,7 @@ namespace RPG.Characters
             }
         }
 
-        void IAttack.Attack(Enemy enemy)
+        void IAttack.Attack(Character enemy)
         {
             enemy.Focus -= this.Energy;
         }

@@ -1,6 +1,6 @@
 ﻿namespace RPG.Characters
 {
-    public class PartyAnimal : Student
+    public class PartyAnimal : Character
     {
 
     }
