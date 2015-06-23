@@ -9,7 +9,8 @@ namespace RPG.Characters
         private int focus;
         private int energy;
 
-        public Character(string name, int focus, int energy) : base()
+        public Character(Position position, char objectSymbol, string name, int focus, int energy)
+            : base(position, objectSymbol)
         {
             this.Name = name;
             this.Focus = focus;
@@ -35,6 +36,17 @@ namespace RPG.Characters
         void IAttack.Attack(Enemy enemy)
         {
             enemy.Focus -= this.Energy;
+        }
+
+
+        public int Damage
+        {
+            get { throw new NotImplementedException(); }
+        }
+
+        public int Health
+        {
+            get { throw new NotImplementedException(); }
         }
     }
 }
