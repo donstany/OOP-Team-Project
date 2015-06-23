@@ -1,20 +1,22 @@
 ﻿namespace RPG.Characters
 {
+    using System;
+
     public abstract class Character : GameObject
     {
         private string name;
-        private int health;
-        private int damage;
+        private int focus;
+        private int energy;
 
-        public Character(string name, int health, int damage) : base()
+        public Character(string name, int focus, int energy) : base()
         {
             this.Name = name;
-            this.Health = health;
-            this.Damage = damage;
+            this.Focus = focus;
+            this.Energy = energy;
         }
 
-        public int Health { get; set; }
-        public int Damage { get; set; }
+        public int Focus { get; set; }
+        public int Energy { get; set; }
 
         public string Name
         {
@@ -26,7 +28,7 @@
             {
                 if (string.IsNullOrWhiteSpace(value))
                 {
-                    throw ArgumentNullException("name", "Name cannot be empty or null");
+                    throw new ArgumentNullException("name", "Name cannot be empty or null");
                 }
                 this.name = value;
             }
