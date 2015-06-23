@@ -1,8 +1,9 @@
-﻿namespace RPG.Characters
+namespace RPG.Characters
 {
     using System;
+    using RPG.Interfaces;
 
-    public abstract class Character : GameObject
+    public abstract class Character : GameObject, ICharacter
     {
         private string name;
         private int focus;
@@ -20,10 +21,7 @@
 
         public string Name
         {
-            get
-            {
-                return this.name;
-            }
+            get { return this.name; }
             set
             {
                 if (string.IsNullOrWhiteSpace(value))
@@ -32,6 +30,11 @@
                 }
                 this.name = value;
             }
+        }
+
+        void IAttack.Attack(Enemy enemy)
+        {
+            enemy.Focus -= this.Energy;
         }
     }
 }

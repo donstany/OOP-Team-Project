@@ -1,6 +1,6 @@
 ﻿namespace RPG.Items
 {
-    public class StackOverflowHelp : SpecialItem
+    public class StackOverflowHelp : Item
     {
 
     }
