@@ -10,7 +10,7 @@ namespace RPG.Characters
         private int health;
         private int damage;
 
-        public Character(string name, int health, int damage) : base()
+        public Character(string name, int health, int damage) : base(TODO)
         {
             this.Name = name;
             this.Health = health;
