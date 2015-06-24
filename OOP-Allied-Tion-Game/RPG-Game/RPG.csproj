@@ -72,6 +72,7 @@
     <Compile Include="Items\Resharper.cs" />
     <Compile Include="MainClass.cs" />
     <Compile Include="MapLoader.cs" />
+    <Compile Include="Sound.cs" />
     <Compile Include="ObjectsLetters.cs" />
     <Compile Include="Position.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
