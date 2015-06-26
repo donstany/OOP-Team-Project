@@ -1,6 +1,6 @@
 ﻿namespace TestMonogame
 {
-    using System.Text;
+    using Allied_Tion_Monogame_Test;
     using Microsoft.Xna.Framework;
     using Microsoft.Xna.Framework.Graphics;
     using Microsoft.Xna.Framework.Input;
@@ -20,13 +20,12 @@
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
 
-        private Texture2D heroSkin;
-        private Texture2D map;
+        //private SpriteFont spriteFont;
 
-        private SpriteFont spriteFont;
-
+        private Map map;
         private Player player;
         private Vector2 mapPosition;
+
 
         public Game1()
         {
@@ -66,11 +65,23 @@
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
-            this.heroSkin = Content.Load<Texture2D>("HeroSkin");
-            this.map = Content.Load<Texture2D>("map");
-            spriteFont = Content.Load<SpriteFont>("SpriteFont");
+            player = new Player("ivancho", 0.0f, 0.0f, Content.Load<Texture2D>("HeroSkin"), 5);
 
-            player = new Player("ivancho", 1, 1, heroSkin);
+            //this.spriteFont = Content.Load<SpriteFont>("SpriteFont");
+
+            this.map = new Map();
+
+            var bush1 = new MapElement(Content.Load<Texture2D>("bush"), new Point(100,10));
+            var bush2 = new MapElement(Content.Load<Texture2D>("bush"), new Point(120,30));
+            var bush3 = new MapElement(Content.Load<Texture2D>("bush"), new Point(140,50));
+            var bush4 = new MapElement(Content.Load<Texture2D>("bush"), new Point(1300,50));
+
+            map.Initialize(Content.Load<Texture2D>("map"));
+            map.AddMapElement(bush1);
+            map.AddMapElement(bush2);
+            map.AddMapElement(bush3);
+            map.AddMapElement(bush4);
+
             mapPosition = new Vector2(0, 0);
 
             // TODO: use this.Content to load your game content here
@@ -94,68 +105,67 @@
         {
             if (Keyboard.GetState().IsKeyDown(Keys.Right))
             {
-                if (player.X < WindowWidth / 2
-                    || mapPosition.X + map.Width < WindowWidth)
+                if (player.PositionX < WindowWidth / 2
+                    || mapPosition.X + map.Image.Width < WindowWidth)
                 {
-                    if (player.X < WindowWidth - player.Skin.Width)
+                    if (player.PositionX < WindowWidth - player.Skin.Width)
                     {
-                        player.X += 3;
+                        player.PositionX+=player.Speed.X;
                     }
                 }
                 else
                 {
-                    mapPosition.X -= 3;
+                    mapPosition.X -= player.Speed.X;
                 }
             }
 
             if (Keyboard.GetState().IsKeyDown(Keys.Left))
             {
-                if (player.X >= WindowWidth / 2
-                    || mapPosition.X >= map.Bounds.Left)
+                if (player.PositionX >= WindowWidth / 2
+                    || mapPosition.X >= map.Image.Bounds.Left)
                 {
-                    if (player.X > 0)
+                    if (player.PositionX > 0)
                     {
-                        player.X -= 3;
+                        player.PositionX -= player.Speed.X;
                     }
                 }
                 else
                 {
-                    mapPosition.X += 3;
+                    mapPosition.X += player.Speed.X;
                 }
             }
 
             if (Keyboard.GetState().IsKeyDown(Keys.Down))
             {
-                if (player.Y < WindowHeight / 2
-                    || mapPosition.Y + map.Height < WindowHeight)
+                if (player.PositionY < WindowHeight / 2
+                    || mapPosition.Y + map.Image.Height < WindowHeight)
                 {
-                    if (player.Y < WindowHeight - player.Skin.Height)
+                    if (player.PositionY < WindowHeight - player.Skin.Height)
                     {
-                        player.Y += 3;
+                        player.PositionY += player.Speed.Y;
                     }
                 }
                 else
                 {
-                    mapPosition.Y -= 3;
+                    mapPosition.Y -= player.Speed.Y;
                 }
             }
 
             if (Keyboard.GetState().IsKeyDown(Keys.Up))
             {
-                if (player.Y >= WindowHeight / 2
-                    || mapPosition.Y >= map.Bounds.Top)
+                if (player.PositionY >= WindowHeight / 2
+                    || mapPosition.Y >= map.Image.Bounds.Top)
                 {
-                    if (player.Y > 0)
+                    if (player.PositionY > 0)
                     {
-                        player.Y -= 3;
+                        player.PositionY -= player.Speed.Y;
                     }
                 }
                 else
                 {
-                    mapPosition.Y += 3;
+                    mapPosition.Y += player.Speed.Y;
                 }
             }
-
 
             if (Keyboard.GetState().IsKeyDown(Keys.Escape))
             {
@@ -177,10 +187,13 @@
 
             spriteBatch.Begin();
 
-            spriteBatch.Draw(map, mapPosition, null, Color.Beige);
-            //spriteBatch.Draw(map, mapPosition, null, Color.Beige, 0.0f, new Vector2(0.0f), new Vector2(1f), SpriteEffects.None, 1.0f);
-            spriteBatch.Draw(player.Skin, new Vector2(player.X, player.Y));
-            spriteBatch.DrawString(spriteFont, new StringBuilder("This is bolded test text"), new Vector2(100, 50), Color.WhiteSmoke);
+            //spriteBatch.Draw(map.Image, mapPosition, null, Color.Beige);
+
+            //spriteBatch.Draw(bush1.Image, new Vector2(bush1.TopLeft.X,bush1.TopLeft.Y));
+            map.Draw(spriteBatch, mapPosition); // draw map with all its elements
+
+            spriteBatch.Draw(player.Skin, new Vector2(player.PositionX, player.PositionY)); // draw player
+            //spriteBatch.DrawString(spriteFont, new StringBuilder("This is bolded test text"), new Vector2(100, 50), Color.WhiteSmoke);
 
             spriteBatch.End();
 

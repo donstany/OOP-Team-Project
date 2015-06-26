@@ -1,23 +1,29 @@
-﻿namespace TestMonogame
+﻿using Microsoft.Xna.Framework;
+
+namespace TestMonogame
 {
     using Microsoft.Xna.Framework.Graphics;
 
-    class Player
+    public class Player
     {
-        public Player(string name, int x, int y, Texture2D skin)
+        public Player(string name, float positionX, float positionY, Texture2D skin, int speed)
         {
             this.Name = name;
             this.Skin = skin;
-            this.X = x;
-            this.Y = y;
+            this.PositionX = positionX;
+            this.PositionY = positionY;
+            this.Speed = new Vector2(speed, speed);
         }
 
         public string Name { get; set; }
 
         public Texture2D Skin { get; set; }
 
-        public int X { get; set; }
-        public int Y { get; set; }
+        public float PositionX { get; set; }
+
+        public float PositionY { get; set; }
+
+        public Vector2 Speed { get; set; }
     }
 }
 
